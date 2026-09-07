@@ -17,3 +17,5 @@ Git saves a full snapshot of your project every time you commit, not just the ch
 ```
 git log --oneline
 ```
+##  What I Learned
+I am learning how Git and GitHub work together.
