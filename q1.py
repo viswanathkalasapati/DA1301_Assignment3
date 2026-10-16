@@ -22,15 +22,16 @@ def printer_queue_order(pages: List[int]) -> List[int]:
     result = []
 
     for i, p in enumerate(pages):
-        queue.append((i, p))
+        if p > 0:
+            queue.append([i, p])
 
     while queue:
         doc_idx, pages_left = queue.popleft()
         pages_left -= 1
-        if pages_left > 0:
-            queue.append((doc_idx, pages_left))
-        else:
+        if pages_left == 0:
             result.append(doc_idx)
+        else:
+            queue.append([doc_idx, pages_left])
 
     return result
 
