@@ -1,8 +1,7 @@
-from collection import deque
-from typing import List
 
 
-def printer_queue_order(pages: List[int]) -> List[int]:
+
+def printer_queue_order(pages: list[int]) -> list[int]:
     """
     Problem 1: Round-robin printer.
 
@@ -18,7 +17,7 @@ def printer_queue_order(pages: List[int]) -> List[int]:
         List of document numbers in the order they finish printing.
     """
 
-    queue = deque()
+    queue = []
     result = []
 
     for i, p in enumerate(pages):
@@ -26,7 +25,7 @@ def printer_queue_order(pages: List[int]) -> List[int]:
             queue.append([i, p])
 
     while queue:
-        doc_idx, pages_left = queue.popleft()
+        doc_idx, pages_left = queue.pop(0)
         pages_left -= 1
         if pages_left == 0:
             result.append(doc_idx)
